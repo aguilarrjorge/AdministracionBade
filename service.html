@@ -1,0 +1,129 @@
+
+<?php
+
+$aseguradoras = $_GET['aseguradoras'];
+
+$arrayCias = explode(";", $aseguradoras);
+sort($arrayCias);
+
+for ($i=1; $i <count($arrayCias)  ; $i++) { 
+  echo "[$i]: ".$arrayCias[$i]."<br>";
+  if ($arrayCias[$i] == 'metlife') {
+     $pdfMetlife = rand(1, 3);
+  }
+
+}
+
+echo "RAND ". $pdfMetlife;
+
+
+
+
+
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FASTER - Logistics Company Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>Tel: (443) 324 3732</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>contacto@grupobade.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="https://web.facebook.com/grupo.bade/">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="https://x.com/grupobade">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="https://www.linkedin.com/in/grupo-bade-94348817b">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">           
+
+            <div class="d-flex align-items-center justify-content-left mb-4 p-4">
+                <a href="index.html" class="text-decoration-none" style="display: flex;">
+                    <i class="fa fa-2x fa-chevron-left text-dark pr-3"></i>
+                    <h6 class="font-weight-medium m-0" style="padding-top: 5px;">Regresar</h6>
+                </a>
+            </div>
+
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold" style="color: #0C4DA2 !important;">Lista de Resultados</h6>
+                <h1 class="mb-4">Aseguradoras</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4" style="background-color: #F5F5F5;">
+                       <img src="img/cia/metlife.png" width="80%;">
+                    </div>
+                    
+                    <a class="border-bottom text-decoration-none" href="" style="color: #0C4DA2 !important;">Descargar</a>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
