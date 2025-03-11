@@ -1,18 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {   
     var input_contratante = document.getElementById("contratante")        
+    var input_sexoM = document.getElementById("sexoM");
+    var input_sexoF = document.getElementById("sexoF");
     var search = document.getElementById("btn_search");
 
     input_contratante.addEventListener("input", function(event) {
-        console.log("El valor del input es:", event.target.value);
+        //console.log("El valor del input es:", event.target.value);
 
-        if(input_contratante.value != '')
-            search.disabled = false;
+        if(input_contratante.value != '' && (input_sexoM.checked != false || input_sexoF.checked != false)){
+            search.disabled = false;            
+        }
+            
         else
-            search.disabled = true;
+            search.disabled = true;        
 
     });
 
-    stopVideo();
+    input_sexoM.addEventListener("input", function(event){
+        if(input_sexoM.checked != false && input_contratante.value != '')
+            search.disabled  = false;
+        else
+            search.disabled = true;
+    });
+
+    input_sexoF.addEventListener("input", function(event){
+        if(input_sexoF.checked != false && input_contratante.value != '')
+            search.disabled  = false;
+        else
+            search.disabled = true;
+    });
+
+//    stopVideo();
 });
 
 function generaPDF(){

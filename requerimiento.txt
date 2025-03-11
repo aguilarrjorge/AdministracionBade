@@ -1,0 +1,9 @@
+* dirección aleatoria,
+* vigencia dentro del rango actual
+* numero de póliza aleatorio
+* siempre renovación
+* poner check masculino o femenino después de input contratante. OK
+* Guion en fecha nac, antigüedad, deducible, coaseguro y tipo de conducto para no mostrar.
+* Poner Logo SicasOnline
+* quitar div de video. y div de footer  ok
+* COMPANIAS ACTIVAS = metlife, gnp, atlas, monterrey, axxa y vepormas, allianz
