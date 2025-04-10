@@ -7,6 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type"); // Encabezados permitidos
 $contratante = strtoupper($_GET['contratante']);
 $aseguradora = $_GET['cia'];
 $pdf = $_GET['pdf'];
+$sexo = $_GET['sexo'];
 
 /*echo "ASeguradoras  ".$aseguradoras;
 
@@ -35,6 +36,69 @@ switch ($aseguradora) {
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(6, 36);
    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+   // SEXO
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(158, 104);
+   $pdf->Cell(5, 2, $sexo, 0, 0, 'L', false);
+
+   // numero de poliza
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(131, 36.2);
+   $pdf->Cell(5, 2, rand(100000, 1000000), 0, 0, 'L', false);
+
+   // vigencia
+   $fechaActual = date('d');
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(125, 72);
+   $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
+
+   // mes
+   $fechaActual = date('d-m-Y');
+   $fechaCalculada = strtotime('-7 month', strtotime($fechaActual));
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(136, 72);
+   $pdf->Cell(5, 2, date('m', $fechaCalculada), 0, 0, 'L', false);
+
+   // anio
+   $fechaActual = date('d-m-Y');
+   $fechaCalculada = strtotime('-1 year', strtotime($fechaActual));
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(148, 72);
+   $pdf->Cell(5, 2, date('Y', $fechaCalculada), 0, 0, 'L', false);
+
+   // hasta
+
+    // vigencia
+    $fechaActual = date('d');
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(165, 72);
+    $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
+
+     // mes
+   $fechaActual = date('d-m-Y');
+   $fechaCalculada = strtotime('-7 month', strtotime($fechaActual));
+   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetTextColor(0,0,0);
+   $pdf->SetXY(177, 72);
+   $pdf->Cell(5, 2, date('m', $fechaCalculada), 0, 0, 'L', false);
+
+    // anio
+    $fechaActual = date('Y');
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(189, 72);
+    $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
+ 
+
+ 
+   
 
    $pdf->SetFont('Courier', '', 10);
    $pdf->SetTextColor(0,0,0);

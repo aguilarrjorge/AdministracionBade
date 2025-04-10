@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
         else
             search.disabled = true;
     });
-
-//    stopVideo();
 });
 
 function generaPDF(){
@@ -48,6 +46,9 @@ function generaPDF(){
     var monterrey = document.getElementById("monterrey")
     var allianz = document.getElementById("allianz")
     var argos = document.getElementById("argos")
+
+    var sexoM = document.getElementById("sexoM");  
+    var sexo = sexoM.checked == true ? "M" : "F";
 
     var arrayAseguradoras = ''    
 
@@ -94,7 +95,7 @@ function generaPDF(){
         }
 
         console.log("arrayAseguradoras = " + arrayAseguradoras)
-
+        console.log("Sexo = " + sexo);
 
 
         //const params = new URLSearchParams({ key: contratante, aseguradoras: arrayAseguradoras});
@@ -107,7 +108,8 @@ function generaPDF(){
             type: "POST",
             data: {
                 contratante:contratante,
-                aseguradoras: arrayAseguradoras 
+                aseguradoras: arrayAseguradoras,
+                sexo : sexo
             },
             dataType: 'json', 
             success: function(response){
@@ -129,7 +131,7 @@ function generaPDF(){
                 console.log("Response: " + response.pdf);
 
                 $(`#ans_cias`).html(`<img src="img/cia/${response.cia + ".png"}" width="80%;">`);
-                $(`#ans_cias_download`).html(`<a class="border-bottom text-decoration-none" href="GenerarPDF.php?contratante=${response.contratante}&cia=${response.cia}&pdf=${response.pdf}" style="color: #0C4DA2 !important;" target="_blank">Descargar</a>`);
+                $(`#ans_cias_download`).html(`<a class="border-bottom text-decoration-none" href="GenerarPDF.php?contratante=${response.contratante}&cia=${response.cia}&pdf=${response.pdf}&sexo=${sexo}" style="color: #0C4DA2 !important;" target="_blank">Descargar</a>`);
 
             },
             error: function(){
