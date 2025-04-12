@@ -49,6 +49,7 @@ function generaPDF(){
 
     var sexoM = document.getElementById("sexoM");  
     var sexo = sexoM.checked == true ? "M" : "F";
+    var isSearch = document.getElementById("isSearch");
 
     var arrayAseguradoras = ''    
 
@@ -96,13 +97,16 @@ function generaPDF(){
 
         console.log("arrayAseguradoras = " + arrayAseguradoras)
         console.log("Sexo = " + sexo);
+        console.log("isSearch = " + isSearch.checked);
 
 
         //const params = new URLSearchParams({ key: contratante, aseguradoras: arrayAseguradoras});
         /*//window.location.href = 'GenerarPDF.php?' + params.toString();
         window.location.href = 'php/selectCia.php?' + params.toString();*/
 
-
+        if(!isSearch.checked){
+            arrayAseguradoras = "";
+        }
         $.ajax({
             url: "php/selectCia.php",
             type: "POST",
@@ -130,8 +134,12 @@ function generaPDF(){
                 console.log("Response: " + response.cia);
                 console.log("Response: " + response.pdf);
 
-                $(`#ans_cias`).html(`<img src="img/cia/${response.cia + ".png"}" width="80%;">`);
-                $(`#ans_cias_download`).html(`<a class="border-bottom text-decoration-none" href="GenerarPDF.php?contratante=${response.contratante}&cia=${response.cia}&pdf=${response.pdf}&sexo=${sexo}" style="color: #0C4DA2 !important;" target="_blank">Descargar</a>`);
+                if(response.cia != null){
+                    $(`#ans_cias`).html(`<img src="img/cia/${response.cia + ".png"}" width="80%;">`);
+                    $(`#ans_cias_download`).html(`<a class="border-bottom text-decoration-none" href="GenerarPDF.php?contratante=${response.contratante}&cia=${response.cia}&pdf=${response.pdf}&sexo=${sexo}" style="color: #0C4DA2 !important;" target="_blank">Descargar</a>`);   
+                }else{
+                    $(`#ans_cias`).html(`<p> Sin Resultados </p>`);
+                }              
 
             },
             error: function(){

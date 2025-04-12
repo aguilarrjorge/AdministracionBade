@@ -38,16 +38,16 @@ switch ($aseguradora) {
    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
 
    // SEXO
-   $pdf->SetFont('Helvetica', '', 10);
+   $pdf->SetFont('Courier', '', 11);
    $pdf->SetTextColor(0,0,0);
-   $pdf->SetXY(158, 104);
+   $pdf->SetXY(158, 104.3);
    $pdf->Cell(5, 2, $sexo, 0, 0, 'L', false);
 
    // numero de poliza
    $pdf->SetFont('Helvetica', '', 10);
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(131, 36.2);
-   $pdf->Cell(5, 2, rand(100000, 1000000), 0, 0, 'L', false);
+   $pdf->Cell(5, 2, rand(1000000, 1000000), 0, 0, 'L', false);
 
    // vigencia
    $fechaActual = date('d');
