@@ -50,15 +50,19 @@ switch ($aseguradora) {
    $pdf->Cell(5, 2, rand(1000000, 1000000), 0, 0, 'L', false);
 
    // vigencia
-   $fechaActual = date('d');
+   $dia = rand(10,30);
    $pdf->SetFont('Helvetica', '', 10);
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(125, 72);
-   $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
+   $pdf->Cell(5, 2, $dia, 0, 0, 'L', false);
 
    // mes
    $fechaActual = date('d-m-Y');
-   $fechaCalculada = strtotime('-7 month', strtotime($fechaActual));
+   $mes_aleatorio = rand(date('m') + 1 ,11);
+
+   $rand_sus = "- $mes_aleatorio month";
+   
+   $fechaCalculada = strtotime($rand_sus, strtotime($fechaActual));   
    $pdf->SetFont('Helvetica', '', 10);
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(136, 72);
@@ -74,16 +78,15 @@ switch ($aseguradora) {
 
    // hasta
 
-    // vigencia
-    $fechaActual = date('d');
+    // vigencia    
     $pdf->SetFont('Helvetica', '', 10);
     $pdf->SetTextColor(0,0,0);
     $pdf->SetXY(165, 72);
-    $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
+    $pdf->Cell(5, 2, $dia, 0, 0, 'L', false);
 
      // mes
    $fechaActual = date('d-m-Y');
-   $fechaCalculada = strtotime('-7 month', strtotime($fechaActual));
+   $fechaCalculada = strtotime($rand_sus, strtotime($fechaActual));
    $pdf->SetFont('Helvetica', '', 10);
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(177, 72);
