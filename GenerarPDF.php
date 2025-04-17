@@ -4,10 +4,14 @@ header("Access-Control-Allow-Origin: *"); // Permite solicitudes de cualquier or
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS"); // Métodos permitidos
 header("Access-Control-Allow-Headers: Content-Type"); // Encabezados permitidos
 
+include("php/codigosPostales.php");
+
 $contratante = strtoupper($_GET['contratante']);
 $aseguradora = $_GET['cia'];
 $pdf = $_GET['pdf'];
 $sexo = $_GET['sexo'];
+
+$cp_aleatorio = rand(0, count($cp) - 1);
 
 /*echo "ASeguradoras  ".$aseguradoras;
 
@@ -99,6 +103,17 @@ switch ($aseguradora) {
     $pdf->SetXY(189, 72);
     $pdf->Cell(5, 2, $fechaActual, 0, 0, 'L', false);
  
+    // CP
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(49, 54.5);
+    $pdf->Cell(5, 2, $cp[$cp_aleatorio], 0, 0, 'L', false);
+
+    //colonia
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(6, 49.5);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper($colonia[$cp_aleatorio])) , 0, 0, 'L', false);
 
  
    
