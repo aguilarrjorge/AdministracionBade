@@ -1,6 +1,7 @@
-* dirección aleatoria,
+
 * siempre renovación
 
+* dirección aleatoria, OK
 * Poner Logo SicasOnline OK
 * vigencia dentro del rango actual OK
 * numero de póliza aleatorio OK
