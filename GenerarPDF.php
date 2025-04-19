@@ -51,7 +51,7 @@ switch ($aseguradora) {
    $pdf->SetFont('Helvetica', '', 10);
    $pdf->SetTextColor(0,0,0);
    $pdf->SetXY(131, 36.2);
-   $pdf->Cell(5, 2, rand(1000000, 1000000), 0, 0, 'L', false);
+   $pdf->Cell(5, 2, rand(100000, 1000000), 0, 0, 'L', false);
 
    // vigencia
    $dia = rand(10,30);
@@ -112,9 +112,15 @@ switch ($aseguradora) {
     //colonia
     $pdf->SetFont('Helvetica', '', 10);
     $pdf->SetTextColor(0,0,0);
-    $pdf->SetXY(6, 49.5);
+    $pdf->SetXY(6, 50);
     $pdf->Cell(5, 2, utf8_decode(strtoupper($colonia[$cp_aleatorio])) , 0, 0, 'L', false);
 
+    //Calle
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(6, 45);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio] No $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+    
  
    
 
