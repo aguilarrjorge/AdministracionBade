@@ -279,10 +279,144 @@ switch ($aseguradora) {
     $pdf->SetXY(40, 110.5);
     $pdf->Cell(5, 2,$cp[$cp_aleatorio], 0, 0, 'L', false);
 
-
-
   break;
  
+  case 'argos':
+
+    //contratante
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(13, 38);
+    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+    //poliza
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(150, 38);
+    $pdf->Cell(5, 2, rand(1000000000, 10000000000), 0, 0, 'L', false);
+
+    //CONTRATENTE
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(13, 49);
+    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+    //direccion
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(13, 53);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio] # $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    $pdf->SetXY(13, 57);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$colonia[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    $pdf->SetXY(20, 63.5);
+    $pdf->Cell(5, 2,$cp[$cp_aleatorio], 0, 0, 'L', false);
+
+    // vigencia desde
+    $pdf->SetXY(166, 83);
+    $pdf->Cell(5, 2, $dia, 0, 0, 'L', false);
+    $pdf->SetXY(178, 83);
+    $pdf->Cell(5, 2, date('m', $fechaCalculada), 0, 0, 'L', false);
+    $pdf->SetXY(191, 83);
+    $pdf->Cell(5, 2, date('Y', $fechaCalculada), 0, 0, 'L', false);
+
+    //ASEGURADO
+    $pdf->SetXY(12, 140);
+    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+  break;
+
+  case 'banorte':
+
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetXY(22, 29);
+    $pdf->Cell(5, 2, rand(10000000, 100000000), 0, 0, 'L', false);
+
+    //contratante
+    $pdf->SetXY(47, 40);
+    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+    //Direccion
+    $pdf->SetXY(34, 45);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio] # $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //colonia
+    $pdf->SetXY(22, 56);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$colonia[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //cp
+    $pdf->SetXY(181, 45);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$cp[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+     //contratante
+     $pdf->SetXY(47, 72);
+     $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+      //Direccion
+    $pdf->SetXY(34, 77.5);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio] # $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //colonia
+    $pdf->SetXY(22, 88);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$colonia[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //cp
+    $pdf->SetXY(181, 77.5);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$cp[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //Direccion
+    $pdf->SetXY(34, 99);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio] # $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //colonia
+    $pdf->SetXY(22, 110);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$colonia[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //cp
+    $pdf->SetXY(181, 99);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$cp[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+
+     // vigencia desde
+     $pdf->SetXY(39, 131);
+     $pdf->Cell(5, 2, $dia. "/". date('M', $fechaCalculada). "/".date('Y', $fechaCalculada) , 0, 0, 'L', false);
+
+     // vigencia hasta
+     $pdf->SetXY(105, 131);
+     $pdf->Cell(5, 2, $dia. "/". date('M', $fechaCalculada). "/".$fechaActual , 0, 0, 'L', false);
+  
+  break;
+
+  case 'hir':
+    //contratante
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->SetTextColor(0,0,0);      
+    $pdf->SetXY(6, 36);
+    $pdf->Cell(5, 2, $contratante, 0, 0, 'L', false);
+
+    //poliza
+    $pdf->SetXY(187, 31);
+    $pdf->Cell(5, 2, rand(10000000000, 100000000000), 0, 0, 'L', false);
+
+    // vigencia desde
+    $pdf->SetXY(169, 43);
+    $pdf->Cell(5, 2, $dia. "/". date('m', $fechaCalculada). "/".date('Y', $fechaCalculada) . " al ". $dia. "/". date('m', $fechaCalculada). "/".$fechaActual, 0, 0, 'L', false);
+
+    //Direccion
+    $pdf->SetXY(17, 64.5);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$calles[$cp_aleatorio], $numerosExt[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //colonia
+    $pdf->SetXY(148, 64);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$colonia[$cp_aleatorio]")) , 0, 0, 'L', false);
+
+    //cp
+    $pdf->SetXY(157.5, 70);
+    $pdf->Cell(5, 2, utf8_decode(strtoupper("$cp[$cp_aleatorio]")) , 0, 0, 'L', false);
+    
+
+  break;
  
  default:
   # code...

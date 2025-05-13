@@ -14,7 +14,8 @@ if($aseguradoras != ""){
     $prov_arrayCia = [];
 
     foreach ($arrayCias as $key => $value) { 
-      if ($value == 'metlife' || $value == 'gnp' || $value == 'vepormas' || $value == 'mafre') {
+      if ($value == 'metlife' || $value == 'gnp' || $value == 'vepormas' || $value == 'mafre' || $value == 'argos'
+      || $value == 'banorte' || $value == 'hir') {
           array_push($prov_arrayCia, $value);
       }
     }   
